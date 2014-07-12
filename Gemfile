@@ -5,6 +5,7 @@ gem 'rails', '4.1.4'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'devise'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 4.0.3'
