@@ -1,7 +1,23 @@
 ActiveAdmin.register User do
   permit_params :email, :password, :password_confirmation
 
-  index do
+  controller do
+    def index
+      respond_to do |format|
+        format.html { super }
+        format.csv  { super }
+        format.xml  { super }
+        format.json { super }
+
+        format.pdf do
+          @users = User.all
+          render pdf: 'users', layout: 'pdf', template: 'admin/users/index_pdf.html.erb'
+        end
+      end
+    end
+  end
+
+  index download_links: [:csv, :xml, :json, :pdf] do
     selectable_column
 
     id_column
